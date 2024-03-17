@@ -1,0 +1,36 @@
+<!-- add-stock.component.html -->
+<form [formGroup]="stockForm" (ngSubmit)="submitForm()">
+    <div class="form-group">
+        <label for="productName">Product Name:</label>
+        <input matInput type="text" formControlName="productName" class="form-control">
+    </div>
+    <div class="form-group">
+        <label for="category">Category:</label>
+        <input matInput type="text" formControlName="category" class="form-control">
+    </div>
+    <div class="form-group">
+        <label for="quantity">Quantity:</label>
+        <input matInput type="number" formControlName="quantity" class="form-control">
+    </div>
+    <div class="form-group">
+        <label for="price">Price:</label>
+        <input matInput type="number" formControlName="price" class="form-control">
+    </div>
+    <div class="form-group">
+        <label for="supplier">Supplier:</label>
+        <input matInput type="text" formControlName="supplier" class="form-control">
+    </div>
+    <div class="form-group">
+        <label for="purchaseDate">Purchase Date:</label>
+        <input matInput type="date" formControlName="purchaseDate" class="form-control">
+    </div>
+    <div class="form-group">
+        <label for="additionalCharges">Additional Charges:</label>
+        <input matInput type="number" formControlName="additionalCharges" class="form-control">
+    </div>
+    <div class="form-group">
+        <label for="purchaseDocument">Upload Purchase Document:</label>
+        <input matInput type="file" formControlName="purchaseDocument" class="form-control" (change)="handleFileInput($event)">
+    </div>
+    <button type="submit" class="btn btn-primary" [disabled]="stockForm.invalid">Add Stock</button>
+</form>

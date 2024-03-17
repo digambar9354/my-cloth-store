@@ -1,0 +1,44 @@
+<div class="container">
+    <h2>Sell Product</h2>
+    <form [formGroup]="sellForm" (ngSubmit)="onSubmit()">
+        <mat-form-field appearance="fill">
+            <label for="customerName">Customer Name:</label>
+            <input matInput type="text" id="customerName" formControlName="customerName" class="form-control">
+            <div *ngIf="f['customerName'].invalid && (f['customerName'].dirty || f['customerName'].touched)" class="text-danger">
+                <div *ngIf="f['customerName'].errors?.['required']">Customer Name is required</div>
+            </div>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <label for="mobileNumber">Mobile Number:</label>
+            <input matInput type="text" id="mobileNumber" formControlName="mobileNumber" class="form-control">
+            <div *ngIf="f['mobileNumber'].invalid && (f['mobileNumber'].dirty || f['mobileNumber'].touched)" class="text-danger">
+                <div *ngIf="f['mobileNumber'].errors?.['required']">Mobile Number is required</div>
+            </div>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <label for="quantity">Quantity:</label>
+            <input matInput type="number" id="quantity" formControlName="quantity" class="form-control">
+            <div *ngIf="f['quantity'].invalid && (f['quantity'].dirty || f['quantity'].touched)" class="text-danger">
+                <div *ngIf="f['quantity']?.errors?.['required']">Quantity is required</div>
+                <div *ngIf="f['quantity']?.errors?.['min']">Quantity must be at least 1</div>
+            </div>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <label for="sellingPrice">Selling Price:</label>
+            <input matInput type="number" id="sellingPrice" formControlName="sellingPrice" class="form-control">
+            <div *ngIf="f['sellingPrice'].invalid && (f['sellingPrice'].dirty || f['sellingPrice'].touched)" class="text-danger">
+                <div *ngIf="f['sellingPrice']?.errors?.['required']">Selling Price is required</div>
+                <div *ngIf="f['sellingPrice']?.errors?.['min']">Selling Price must be at least 0.01</div>
+            </div>
+        </mat-form-field>
+        <div appearance="fill">
+            <label for="creditSale">Credit Sale:</label>
+            <input type="checkbox" id="creditSale" formControlName="creditSale" class="form-check-input">
+        </div>
+        <mat-form-field *ngIf="f['creditSale'].value" class="form-group">
+            <mat-checkbox formControlName="creditSale">Credit Sale</mat-checkbox>
+            <input matInput type="number" id="discount" formControlName="discount" class="form-control">
+        </mat-form-field>
+        <button mat-raised-button color="primary" type="submit" [disabled]="sellForm.invalid">Sell</button>
+    </form>
+</div>

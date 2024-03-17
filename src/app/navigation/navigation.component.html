@@ -1,0 +1,21 @@
+<mat-sidenav-container class="sidenav-container">
+    <mat-sidenav #sidenav mode="over">
+        <mat-nav-list>
+            <a mat-list-item routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
+            <a mat-list-item routerLink="/sell" routerLinkActive="active">Sell Product</a>
+            <a mat-list-item routerLink="/stock-visualization" routerLinkActive="active">Stock Visualization</a>
+            <a mat-list-item routerLink="/sms" routerLinkActive="active">SMS</a>
+            <!-- Add more navigation links as needed -->
+        </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <mat-toolbar color="primary">
+            <button mat-icon-button (click)="toggleSidenav()">
+                <mat-icon>menu</mat-icon>
+            </button>
+            <span>My Cloth Store</span>
+        </mat-toolbar>
+        <!-- Add router-outlet here to display the routed components -->
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container>

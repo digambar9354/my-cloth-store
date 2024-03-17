@@ -1,0 +1,18 @@
+<div class="container">
+    <h2>SMS</h2>
+    <form [formGroup]="smsForm" (ngSubmit)="sendSMS()">
+        <mat-form-field appearance="fill">
+            <mat-label>Recipient's Number</mat-label>
+            <input matInput type="text" formControlName="recipientNumber">
+            <mat-error *ngIf="f['recipientNumber'].invalid && (f['recipientNumber'].dirty || f['recipientNumber'].touched)">Recipient's Number is required</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Message</mat-label>
+            <textarea matInput rows="4" formControlName="message"></textarea>
+            <mat-error *ngIf="f['message'].invalid && (f['message'].dirty || f['message'].touched)">Message is required</mat-error>
+        </mat-form-field>
+
+        <button mat-raised-button color="primary" type="submit" [disabled]="smsForm.invalid">Send</button>
+    </form>
+</div>

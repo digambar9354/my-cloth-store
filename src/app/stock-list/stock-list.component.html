@@ -1,0 +1,26 @@
+<!-- stock-list.component.html -->
+<div *ngIf="stocks.length > 0; else noStocks">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Product Name</th>
+                <th>Category</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <!-- Add more columns as needed -->
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let stock of stocks">
+                <td>{{ stock.productName }}</td>
+                <td>{{ stock.category }}</td>
+                <td>{{ stock.quantity }}</td>
+                <td>{{ stock.price }}</td>
+                <!-- Display more stock details -->
+            </tr>
+        </tbody>
+    </table>
+</div>
+<ng-template #noStocks>
+    <p>No stocks available.</p>
+</ng-template>
