@@ -1,13 +1,17 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+import { MatSidenav } from '@angular/material/sidenav';
 
 @Component({
     selector: 'app-navigation',
-    templateUrl: './navigation.component.html'
+    templateUrl: './navigation.component.html',
+    styleUrls: ['./navigation.component.scss']
 })
 export class NavigationComponent {
+    @ViewChild('sidenav') sidenav!: MatSidenav;
+
     constructor() { }
 
     toggleSidenav() {
-        // Add logic here to toggle the sidenav
+        this.sidenav.toggle();
     }
 }
