@@ -1,22 +1,26 @@
-<div class="container">
-    <h2>Login</h2>
-    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-        <mat-form-field appearance="fill">
-            <mat-label>Username</mat-label>
-            <input matInput type="text" formControlName="username">
-            <div *ngIf="f['username'].invalid && (f['username'].dirty || f['username'].touched)" class="text-danger">
-                <div *ngIf="f['username']?.errors?.['required']">Username is required</div>
-            </div>
-        </mat-form-field>
+<div class="container login-container">
+    <div class="left-section">
+        <img src="assets/images/img.jpg" alt="Login Image">
+    </div>
+    <div class="right-section">
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+            <mat-form-field appearance="fill">
+                <mat-label>Username</mat-label>
+                <input matInput type="text" formControlName="username">
+                <div *ngIf="f['username'].invalid && (f['username'].dirty || f['username'].touched)" class="text-danger">
+                    <div *ngIf="f['username']?.errors?.['required']">Username is required</div>
+                </div>
+            </mat-form-field>
 
-        <mat-form-field appearance="fill">
-            <mat-label>Password</mat-label>
-            <input matInput type="password" formControlName="password">
-            <div *ngIf="f['password'].invalid && (f['password'].dirty || f['password'].touched)" class="text-danger">
-                <div *ngIf="f['password']?.errors?.['required']">Password is required</div>
-            </div>
-        </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>Password</mat-label>
+                <input matInput type="password" formControlName="password">
+                <div *ngIf="f['password'].invalid && (f['password'].dirty || f['password'].touched)" class="text-danger">
+                    <div *ngIf="f['password']?.errors?.['required']">Password is required</div>
+                </div>
+            </mat-form-field>
 
-        <button mat-raised-button color="primary" type="submit" [disabled]="loginForm.invalid">Login</button>
-    </form>
+            <button mat-raised-button color="primary" type="submit" [disabled]="loginForm.invalid">Login</button>
+        </form>
+    </div>
 </div>

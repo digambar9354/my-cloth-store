@@ -1,3 +1,180 @@
+/* base.scss */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+/* variables.scss */
+
+:root {
+  --primary-color: #f0f0f0;
+  --font-size-xs: 10px;
+  --font-size-small: 12px;
+  --font-size-medium: 14px;
+  --font-size-large: 16px;
+  --font-size-xl: 18px;
+  --margin-padding-ratio: 4;
+  --common-margin: calc(var(--margin-padding-ratio) * 4px);
+  --common-padding: calc(var(--margin-padding-ratio) * 4px);
+  --white-color: #FFFFFF;
+  --black-color: #000000;
+  --red-color: #FF0000;
+  --green-color: #008000;
+  --blue-color: #0000FF;
+  --yellow-color: #FFFF00;
+}
+
+/* mixins.scss */
+
+@mixin font-size($size) {
+  font-size: $size;
+}
+
+/* login.scss */
+
+.login-container {
+  display: flex;
+  height: 100vh;
+}
+
+.left-section,
+.right-section {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: var(--common-margin);
+  border-radius: var(--common-padding);
+}
+
+.left-section {
+  background-color: var(--primary-color);
+}
+
+.right-section {
+  background-color: var(--white-color);
+}
+
+.login-form {
+  width: 80%;
+  max-width: 300px;
+}
+
+mat-form-field {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+button {
+  width: 100%;
+}
+
+/* navigation.scss */
+
+.nav-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.nav-list {
+  flex-grow: 1;
+}
+
+.nav-list-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 12px 16px;
+  text-decoration: none;
+  color: inherit;
+  border-radius: var(--common-padding);
+  margin-bottom: 10px;
+
+  &.active {
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+}
+
+.nav-toolbar {
+  background-color: #2196F3;
+  color: #ffffff;
+}
+
+.mat-sidenav {
+  position: fixed;
+  margin: var(--common-margin);
+  background-color: var(--primary-color);
+  border-radius: var(--common-padding);
+}
+
+.nav-list-item img {
+  width: 20px;
+  height: 20px;
+}
+
+.mat-drawer-content {
+  margin-left: 109px !important;
+}
+
+
+// Dashboard
+
+.dashboard-container {
+  padding: var(--common-padding);
+  background-color: var(--primary-color);
+  border-radius: var(--common-padding);
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--common-margin);
+}
+
+.header h2 {
+  font-size: var(--font-size-large);
+  margin: 0;
+  color: var(--black-color);
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table th,
+.table td {
+  padding: var(--common-padding);
+  text-align: left;
+  border-bottom: 1px solid var(--black-color);
+  color: var(--black-color);
+}
+
+.table th {
+  background-color: var(--primary-color);
+  font-weight: bold;
+}
+
+.no-stocks-message {
+  padding: var(--common-padding);
+  background-color: var(--primary-color);
+  border-radius: var(--common-padding);
+  color: var(--black-color);
+}
+
+.mat-icon-button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.mat-icon-button:hover {
+  background-color: var(--primary-color);
+  border-radius: 50%;
+}

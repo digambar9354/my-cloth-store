@@ -2,7 +2,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AddStockComponent } from './add-stock/add-stock.component';
-import { StockListComponent } from './stock-list/stock-list.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 import { SellComponent } from './sell/sell.component';
 import { StockVisualizationComponent } from './stock-visualization/stock-visualization.component';
 import { SmsComponent } from './sms/sms.component';
@@ -11,7 +11,7 @@ import { LogoutComponent } from './logout/logout.component';
 
 const routes: Routes = [
     { path: 'add-stock', component: AddStockComponent },
-    { path: 'stock-list', component: StockListComponent },
+    { path: 'stock-list', component: DashboardComponent },
     { path: 'sell', component: SellComponent },
     { path: 'stock-visualization', component: StockVisualizationComponent },
     { path: 'sms', component: SmsComponent },

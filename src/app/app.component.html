@@ -1,2 +1,38 @@
-<app-navigation></app-navigation>
-<router-outlet></router-outlet>
+<mat-sidenav-container class="sidenav-container">
+    <mat-sidenav #sidenav mode="side" opened>
+        <mat-nav-list class="nav-list">
+            <a mat-list-item routerLink="/stock-list" routerLinkActive="active" class="nav-list-item">
+                <img src="assets/images/img.jpg" alt="Image 1">
+                <span class="small-font">Dashboard</span>
+            </a>
+            <a mat-list-item routerLink="/add-stock" routerLinkActive="active" class="nav-list-item">
+                <img src="assets/images/img.jpg" alt="Image 2">
+                <span class="small-font">Stocks</span>
+            </a>
+            <a mat-list-item routerLink="/sell" routerLinkActive="active" class="nav-list-item">
+                <img src="assets/images/img.jpg" alt="Image 2">
+                <span class="small-font">Sell</span>
+            </a>
+            <!-- <a mat-list-item routerLink="/stock-visualization" routerLinkActive="active" class="nav-list-item">
+                <img src="assets/images/img.jpg" alt="Image 2">
+                <span class="small-font">Stock Visualization</span>
+            </a> -->
+            <!-- <a mat-list-item routerLink="/sms" routerLinkActive="active" class="nav-list-item">
+                <img src="assets/images/img.jpg" alt="Image 2">
+                <span class="small-font">Send SMS</span>
+            </a> -->
+            <a mat-list-item routerLink="/login" routerLinkActive="active" class="nav-list-item">
+                <img src="assets/images/img.jpg" alt="Image 2">
+                <span class="small-font">Login</span>
+            </a>
+            <a mat-list-item routerLink="/logout" routerLinkActive="active" class="nav-list-item">
+                <img src="assets/images/img.jpg" alt="Image 2">
+                <span class="small-font">Logout</span>
+            </a>
+        </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <!-- No mat-toolbar -->
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container>
