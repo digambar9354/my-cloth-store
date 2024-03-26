@@ -1,36 +1,61 @@
 <!-- add-stock.component.html -->
-<form [formGroup]="stockForm" (ngSubmit)="submitForm()">
-    <div class="form-group">
-        <label for="productName">Product Name:</label>
-        <input matInput type="text" formControlName="productName" class="form-control">
-    </div>
-    <div class="form-group">
-        <label for="category">Category:</label>
-        <input matInput type="text" formControlName="category" class="form-control">
-    </div>
-    <div class="form-group">
-        <label for="quantity">Quantity:</label>
-        <input matInput type="number" formControlName="quantity" class="form-control">
-    </div>
-    <div class="form-group">
-        <label for="price">Price:</label>
-        <input matInput type="number" formControlName="price" class="form-control">
-    </div>
-    <div class="form-group">
-        <label for="supplier">Supplier:</label>
-        <input matInput type="text" formControlName="supplier" class="form-control">
-    </div>
-    <div class="form-group">
-        <label for="purchaseDate">Purchase Date:</label>
-        <input matInput type="date" formControlName="purchaseDate" class="form-control">
-    </div>
-    <div class="form-group">
-        <label for="additionalCharges">Additional Charges:</label>
-        <input matInput type="number" formControlName="additionalCharges" class="form-control">
-    </div>
-    <div class="form-group">
-        <label for="purchaseDocument">Upload Purchase Document:</label>
-        <input type="file" formControlName="purchaseDocument" class="form-control" (change)="handleFileInput($event)">
-    </div>
-    <button type="submit" class="btn btn-primary" [disabled]="stockForm.invalid">Add Stock</button>
-</form>
+<div class="container">
+    <form [formGroup]="stockForm" (ngSubmit)="submitForm()">
+        <mat-form-field appearance="fill">
+            <label for="productName">Product Name:</label>
+            <input matInput type="text" formControlName="productName" id="productName" class="form-control">
+            <div *ngIf="f['productName'].invalid && (f['productName'].dirty || f['productName'].touched)" class="text-danger">
+                <div *ngIf="f['productName'].errors?.['required']">Customer Name is required</div>
+            </div>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <label for="category">Category:</label>
+            <input matInput type="text" formControlName="category" id="category" class="form-control">
+            <div *ngIf="f['category'].invalid && (f['category'].dirty || f['category'].touched)" class="text-danger">
+                <div *ngIf="f['category'].errors?.['required']">Customer Name is required</div>
+            </div>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <label for="quantity">Quantity:</label>
+            <input matInput type="number" formControlName="quantity" id="quantity" class="form-control">
+            <div *ngIf="f['quantity'].invalid && (f['quantity'].dirty || f['quantity'].touched)" class="text-danger">
+                <div *ngIf="f['quantity'].errors?.['required']">Customer Name is required</div>
+            </div>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <label for="price">Price:</label>
+            <input matInput type="number" formControlName="price" id="price" class="form-control">
+            <div *ngIf="f['price'].invalid && (f['price'].dirty || f['price'].touched)" class="text-danger">
+                <div *ngIf="f['price'].errors?.['required']">Customer Name is required</div>
+            </div>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <label for="supplier">Supplier:</label>
+            <input matInput type="text" formControlName="supplier" id="supplier" class="form-control">
+            <div *ngIf="f['supplier'].invalid && (f['supplier'].dirty || f['supplier'].touched)" class="text-danger">
+                <div *ngIf="f['supplier'].errors?.['required']">Customer Name is required</div>
+            </div>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Purchase Date:</mat-label>
+            <input matInput formControlName="purchaseDate" [matDatepicker]="picker">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+            <div *ngIf="f['purchaseDate'].invalid && (f['purchaseDate'].dirty || f['purchaseDate'].touched)" class="text-danger">
+                <div *ngIf="f['purchaseDate'].errors?.['required']">Customer Name is required</div>
+            </div>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <label for="additionalCharges">Additional Charges:</label>
+            <input matInput type="number" formControlName="additionalCharges" id="additionalCharges" class="form-control">
+            <div *ngIf="f['additionalCharges'].invalid && (f['additionalCharges'].dirty || f['additionalCharges'].touched)" class="text-danger">
+                <div *ngIf="f['additionalCharges'].errors?.['required']">Customer Name is required</div>
+            </div>
+        </mat-form-field>
+        <div>
+            <label for="purchaseDocument">Upload Purchase Document:</label>
+            <input type="file" formControlName="purchaseDocument" id="purchaseDocument" class="form-control" (change)="handleFileInput($event)">
+        </div>
+        <button mat-raised-button color="primary" type="submit" [disabled]="stockForm.invalid">Add Stock</button>
+    </form>
+</div>

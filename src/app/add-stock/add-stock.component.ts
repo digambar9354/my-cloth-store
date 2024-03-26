@@ -29,6 +29,7 @@ export class AddStockComponent implements OnInit {
             purchaseDocument: [null]
         });
     }
+    get f() { return this.stockForm.controls; }
 
     submitForm() {
         if (this.stockForm.invalid) {

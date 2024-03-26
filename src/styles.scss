@@ -11,6 +11,7 @@ body {
 
 :root {
   --primary-color: #f0f0f0;
+  --mdc-filled-text-field-container-color: #f0f0f0;
   --font-size-xs: 10px;
   --font-size-small: 12px;
   --font-size-medium: 14px;
@@ -33,11 +34,19 @@ body {
   font-size: $size;
 }
 
+.container {
+  margin: var(--common-margin);
+  border-radius: var(--common-padding);
+  padding: var(--common-margin);
+  background-color: var(--primary-color);
+  min-height: 93vh;
+}
+
 /* login.scss */
 
 .login-container {
   display: flex;
-  height: 100vh;
+  height: 93vh;
 }
 
 .left-section,
@@ -46,7 +55,6 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: var(--common-margin);
   border-radius: var(--common-padding);
 }
 
@@ -106,7 +114,7 @@ button {
 
 .mat-sidenav {
   position: fixed;
-  margin: var(--common-margin);
+  margin: var(--common-margin) var(--common-margin) 0 var(--common-margin);
   background-color: var(--primary-color);
   border-radius: var(--common-padding);
 }

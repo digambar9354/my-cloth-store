@@ -7,6 +7,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
 // Import other Angular Material modules as needed
 
@@ -19,8 +21,9 @@ import { MatToolbarModule } from '@angular/material/toolbar';
         MatInputModule, 
         MatIconModule,
         MatToolbarModule,
-        MatSidenavModule
-
+        MatSidenavModule,
+        MatDatepickerModule,
+        MatNativeDateModule
         // Add other Angular Material modules as needed
     ],
     exports: [
@@ -28,7 +31,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
         MatInputModule,
         MatIconModule,
         MatToolbarModule,
-        MatSidenavModule
+        MatSidenavModule,
+        MatDatepickerModule
         // Export other Angular Material modules as needed
     ]
 })

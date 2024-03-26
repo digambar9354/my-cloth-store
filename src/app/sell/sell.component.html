@@ -33,11 +33,15 @@
         </mat-form-field>
         <div appearance="fill">
             <label for="creditSale">Credit Sale:</label>
-            <input type="checkbox" id="creditSale" formControlName="creditSale" class="form-check-input">
+            <input mat-checkbox type="checkbox" id="creditSale" formControlName="creditSale" class="checkbox">
         </div>
-        <mat-form-field *ngIf="f['creditSale'].value" class="form-group">
-            <mat-checkbox formControlName="creditSale">Credit Sale</mat-checkbox>
+        <mat-form-field *ngIf="f['creditSale'].value" appearance="fill">
+            <label for="discount">Credit Sale</label>
             <input matInput type="number" id="discount" formControlName="discount" class="form-control">
+            <div *ngIf="f['discount'].invalid && (f['discount'].dirty || f['discount'].touched)" class="text-danger">
+                <div *ngIf="f['discount']?.errors?.['required']">Selling Price is required</div>
+                <div *ngIf="f['discount']?.errors?.['min']">Selling Price must be at least 0.01</div>
+            </div>
         </mat-form-field>
         <button mat-raised-button color="primary" type="submit" [disabled]="sellForm.invalid">Sell</button>
     </form>
